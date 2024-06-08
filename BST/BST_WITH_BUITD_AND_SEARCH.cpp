@@ -35,12 +35,14 @@ node* insert(node *node, int key){
 }
 
 bool siThere(ll key, node *node){
+    if(node == NULL) return false;
     if(key == node->key) {
         return true ;
     }
-    if(key < node->key) if(siThere(key, node->left)) return true ;
-    else if(key > node -> key) if(siThere(key , node->right)) return true ;
-    return false ;
+
+    if(key < node->key)  return siThere(key, node->left) ;
+    else if(key > node -> key) return siThere(key , node->right) ;
+
 }
 void solve(){
     ll n ;
